@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://saskatoon-art-guide.github.io/schema/artwork.schema.json",
+  "title": "Public Artwork",
+  "description": "Schema for documenting public art and murals in Saskatchewan",
+  "type": "object",
+  "required": ["title", "artist", "location", "source", "status"],
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "The name or title of the artwork"
+    },
+    "artist": {
+      "type": "string",
+      "description": "The name(s) of the artist(s) who created the work"
+    },
+    "year": {
+      "type": "integer",
+      "description": "The year the artwork was completed",
+      "minimum": 1900,
+      "maximum": 2100
+    },
+    "location": {
+      "type": "object",
+      "required": ["address"],
+      "properties": {
+        "address": {
+          "type": "string",
+          "description": "Street address or specific location description"
+        },
+        "neighbourhood": {
+          "type": "string",
+          "description": "Neighbourhood or district name"
+        },
+        "latitude": {
+          "type": "number",
+          "description": "GPS latitude coordinate",
+          "minimum": -90,
+          "maximum": 90
+        },
+        "longitude": {
+          "type": "number",
+          "description": "GPS longitude coordinate",
+          "minimum": -180,
+          "maximum": 180
+        }
+      }
+    },
+    "commissioned_by": {
+      "type": "string",
+      "description": "Organization or individual who commissioned the artwork"
+    },
+    "medium": {
+      "type": "array",
+      "description": "Materials and techniques used",
+      "items": {
+        "type": "string",
+        "enum": ["paint", "vinyl", "mixed", "xr", "sculpture", "installation", "other"]
+      }
+    },
+    "artist_contact": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to artist's website or portfolio"
+    },
+    "source": {
+      "type": "string",
+      "description": "How this information was obtained (e.g., artist submission, public record, community contribution)"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "removed", "altered"],
+      "description": "Current status of the artwork"
+    }
+  }
+}

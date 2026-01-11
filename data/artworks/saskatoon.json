@@ -1,0 +1,36 @@
+{
+  "artworks": [
+    {
+      "title": "Prairie Petals: Lilies in Luminous Frames",
+      "artist": "Josh Jacobson",
+      "year": 2023,
+      "location": {
+        "address": "Downtown Alley Gallery, Saskatoon, SK",
+        "neighbourhood": "Downtown",
+        "latitude": 52.127,
+        "longitude": -106.669
+      },
+      "commissioned_by": "Broadway BID",
+      "medium": ["paint"],
+      "artist_contact": "https://www.jjacobsondesign.ca",
+      "source": "Artist submission",
+      "status": "active"
+    },
+    {
+      "title": "Moving Forward",
+      "artist": "Kent Ness",
+      "year": 2023,
+      "location": {
+        "address": "Dream's Building, Downtown Saskatoon, SK",
+        "neighbourhood": "Downtown",
+        "latitude": 52.127,
+        "longitude": -106.669
+      },
+      "commissioned_by": "Downtown Saskatoon / Dream",
+      "medium": ["paint"],
+      "artist_contact": "https://dtnyxe.ca/ness-jacobson-murals/",
+      "source": "DTNYXE Downtown Blog",
+      "status": "active"
+    }
+  ]
+}
