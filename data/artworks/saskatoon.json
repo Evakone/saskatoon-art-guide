@@ -31,6 +31,38 @@
       "artist_contact": "https://dtnyxe.ca/ness-jacobson-murals/",
       "source": "DTNYXE Downtown Blog",
       "status": "active"
+    },
+    {
+      "title": "Global Roots Mural Mosaic",
+      "artist": "Lewis Lavoie (Art Director) + Community Artists",
+      "year": 2024,
+      "location": {
+        "address": "K.W. Nasser Plaza, River Landing, Saskatoon, SK",
+        "neighbourhood": "Downtown",
+        "latitude": 52.131,
+        "longitude": -106.632
+      },
+      "commissioned_by": "Downtown Saskatoon, Global Roots, Triovest",
+      "medium": ["mosaic", "paint"],
+      "artist_contact": "",
+      "source": "DTNYXE: Global Roots Mural Mosaic now installed",
+      "status": "active"
+    },
+    {
+      "title": "Cosmo Civic Skate Park Mural",
+      "artist": "Josh Wāpiskisiw, Peace Akintade, Lautaro Reyes",
+      "year": 2024,
+      "location": {
+        "address": "Cosmo Civic Skate Park, Saskatoon, SK",
+        "neighbourhood": "",
+        "latitude": 52.155,
+        "longitude": -106.683
+      },
+      "commissioned_by": "Persephone Theatre, City of Saskatoon, STEPS Public Art",
+      "medium": ["paint"],
+      "artist_contact": "",
+      "source": "SaskToday: Mural to be unveiled at Cosmo Civic Skate Park",
+      "status": "active"
     }
   ]
 }
