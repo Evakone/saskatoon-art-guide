@@ -1,0 +1,50 @@
+[2026-01-11 23:52:21] ============================================================
+[2026-01-11 23:52:21] Saskatoon Art Guide - Comprehensive Discovery Pipeline
+[2026-01-11 23:52:21] ============================================================
+[2026-01-11 23:52:21] Starting DTNYXE blog discovery...
+[2026-01-11 23:52:21] Searching for: site:dtnyxe.ca mural
+[2026-01-11 23:52:21] Fetching: https://html.duckduckgo.com/html/?q=site%3Adtnyxe.ca+mural
+[2026-01-11 23:52:24] Searching for: site:dtnyxe.ca public art
+[2026-01-11 23:52:24] Fetching: https://html.duckduckgo.com/html/?q=site%3Adtnyxe.ca+public+art
+[2026-01-11 23:52:26] Searching for: site:dtnyxe.ca street art
+[2026-01-11 23:52:26] Fetching: https://html.duckduckgo.com/html/?q=site%3Adtnyxe.ca+street+art
+[2026-01-11 23:52:28] Searching for: site:dtnyxe.ca artist
+[2026-01-11 23:52:28] Fetching: https://html.duckduckgo.com/html/?q=site%3Adtnyxe.ca+artist
+[2026-01-11 23:52:30] Found 1 DTNYXE articles to parse
+[2026-01-11 23:52:30] Fetching: https://dtnyxe.ca/ness-jacobson-murals/
+[2026-01-11 23:52:31]   Parsing article with 193 characters
+[2026-01-11 23:52:31]   Found: Kent Ness - Moving Forward
+[2026-01-11 23:52:31]   Found: Josh Jacobson - Prairie Petals: Lilies in Luminous Frames
+[2026-01-11 23:52:31] DTNYXE discovery complete. Found 2 candidates so far.
+[2026-01-11 23:52:31] Starting City of Saskatoon discovery...
+[2026-01-11 23:52:31]   Searching: site:saskatoon.ca public art
+[2026-01-11 23:52:31] Fetching: https://html.duckduckgo.com/html/?q=site%3Asaskatoon.ca+public+art
+[2026-01-11 23:52:33]   Searching: site:saskatoon.ca mural
+[2026-01-11 23:52:33] Fetching: https://html.duckduckgo.com/html/?q=site%3Asaskatoon.ca+mural
+[2026-01-11 23:52:36]   Searching: saskatoon.ca outdoor art
+[2026-01-11 23:52:36] Fetching: https://html.duckduckgo.com/html/?q=saskatoon.ca+outdoor+art
+[2026-01-11 23:52:38]   Found 0 City of Saskatoon pages
+[2026-01-11 23:52:38] City of Saskatoon discovery complete. Found 2 candidates so far.
+[2026-01-11 23:52:38] Starting general web discovery...
+[2026-01-11 23:52:38]   Searching: Saskatoon mural artist
+[2026-01-11 23:52:38] Fetching: https://html.duckduckgo.com/html/?q=Saskatoon+mural+artist
+[2026-01-11 23:52:40]   Searching: Saskatoon public art downtown
+[2026-01-11 23:52:40] Fetching: https://html.duckduckgo.com/html/?q=Saskatoon+public+art+downtown
+[2026-01-11 23:52:43]   Searching: Saskatoon street art
+[2026-01-11 23:52:43] Fetching: https://html.duckduckgo.com/html/?q=Saskatoon+street+art
+[2026-01-11 23:52:46]   Searching: yxe mural
+[2026-01-11 23:52:46] Fetching: https://html.duckduckgo.com/html/?q=yxe+mural
+[2026-01-11 23:52:48]   Searching: Broadway Saskatoon art
+[2026-01-11 23:52:48] Fetching: https://html.duckduckgo.com/html/?q=Broadway+Saskatoon+art
+[2026-01-11 23:52:51]   Searching: Riversdale Saskatoon mural
+[2026-01-11 23:52:51] Fetching: https://html.duckduckgo.com/html/?q=Riversdale+Saskatoon+mural
+[2026-01-11 23:52:54]   Found 0 web pages about Saskatoon art
+[2026-01-11 23:52:54] General web discovery complete. Found 2 candidates so far.
+[2026-01-11 23:52:54] Instagram discovery requires API credentials (skipped for now)
+[2026-01-11 23:52:54] Exported 2 candidates to data/discovered/candidates.csv
+[2026-01-11 23:52:54] Exported source information to data/discovered/sources.json
+[2026-01-11 23:52:54] Generated report: data/discovered/discovery_report.md
+[2026-01-11 23:52:54] ============================================================
+[2026-01-11 23:52:54] Discovery complete! Found 2 candidates.
+[2026-01-11 23:52:54] Review results in: data/discovered
+[2026-01-11 23:52:54] ============================================================

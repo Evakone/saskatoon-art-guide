@@ -11,7 +11,7 @@ import time
 from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Optional
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urljoin, urlparse, quote_plus
 
 try:
     import requests
@@ -119,28 +119,58 @@ class DiscoveryEngine:
                 return year
         return None
 
+    def _search_duckduckgo(self, query: str, max_results: int = 10) -> List[str]:
+        """Search DuckDuckGo and return URLs"""
+        try:
+            url = f"https://html.duckduckgo.com/html/?q={quote_plus(query)}"
+            soup = self.fetch_page(url)
+            if not soup:
+                return []
+
+            urls = []
+            for link in soup.find_all('a', class_='result__url', href=True):
+                href = link.get('href', '')
+                # Skip DuckDuckGo internal links
+                if href and not href.startswith('//duckduckgo.com'):
+                    urls.append(href)
+                    if len(urls) >= max_results:
+                        break
+
+            return urls
+        except Exception as e:
+            self.log(f"  Error searching: {e}")
+            return []
+
     def discover_dtnyxe_blog(self):
         """Discover artworks from DTNYXE Downtown blog"""
         self.log("Starting DTNYXE blog discovery...")
 
-        # Known article URLs about murals and public art
-        article_urls = [
+        # Start with known article
+        article_urls = set([
             "https://dtnyxe.ca/ness-jacobson-murals/",
+        ])
+
+        # Try to find more articles via site search using DuckDuckGo
+        search_queries = [
+            "site:dtnyxe.ca mural",
+            "site:dtnyxe.ca public art",
+            "site:dtnyxe.ca street art",
+            "site:dtnyxe.ca artist",
         ]
 
-        # Also try to find more articles by searching
-        search_terms = ["mural", "public art", "street art"]
-        for term in search_terms:
-            self.log(f"Searching DTNYXE for: {term}")
-            # Note: This would require site search functionality
-            # For now, focus on known articles
+        for query in search_queries:
+            self.log(f"Searching for: {query}")
+            urls = self._search_duckduckgo(query)
+            article_urls.update(urls)
+            time.sleep(REQUEST_DELAY)
 
+        self.log(f"Found {len(article_urls)} DTNYXE articles to parse")
+
+        # Parse each article
         for url in article_urls:
             soup = self.fetch_page(url)
             if not soup:
                 continue
-
-            # Parse article content
             self._parse_dtnyxe_article(url, soup)
 
         self.log(f"DTNYXE discovery complete. Found {len(self.candidates)} candidates so far.")
@@ -265,25 +295,64 @@ class DiscoveryEngine:
                         self.log(f"  Found: {candidate.artist} - {candidate.title or 'Untitled'}")
 
     def discover_city_saskatoon(self):
-        """Discover artworks from City of Saskatoon public art registry"""
+        """Discover artworks from City of Saskatoon"""
         self.log("Starting City of Saskatoon discovery...")
 
-        # City public art page
-        url = "https://www.saskatoon.ca/community-culture-heritage/arts-culture/public-art"
-        soup = self.fetch_page(url)
+        # Search for City of Saskatoon public art pages
+        search_queries = [
+            "site:saskatoon.ca public art",
+            "site:saskatoon.ca mural",
+            "saskatoon.ca outdoor art",
+        ]
 
-        if not soup:
-            self.log("  Could not access City of Saskatoon page")
-            return
+        city_urls = set()
+        for query in search_queries:
+            self.log(f"  Searching: {query}")
+            urls = self._search_duckduckgo(query, max_results=5)
+            city_urls.update(urls)
+            time.sleep(REQUEST_DELAY)
 
-        # Parse public art listings
-        # Note: This is a placeholder - actual parsing depends on page structure
-        self.log("  City page structure requires manual inspection")
-        self.sources["city_saskatoon"] = {
-            "url": url,
-            "status": "requires_manual_review",
-            "note": "Page structure needs analysis"
-        }
+        self.log(f"  Found {len(city_urls)} City of Saskatoon pages")
+
+        for url in city_urls:
+            soup = self.fetch_page(url)
+            if soup:
+                self._parse_generic_article(url, soup, "City of Saskatoon")
+
+        self.log(f"City of Saskatoon discovery complete. Found {len(self.candidates)} candidates so far.")
+
+    def discover_web_general(self):
+        """Broad web search for Saskatoon murals and public art"""
+        self.log("Starting general web discovery...")
+
+        search_queries = [
+            "Saskatoon mural artist",
+            "Saskatoon public art downtown",
+            "Saskatoon street art",
+            "yxe mural",
+            "Broadway Saskatoon art",
+            "Riversdale Saskatoon mural",
+        ]
+
+        all_urls = set()
+        for query in search_queries:
+            self.log(f"  Searching: {query}")
+            urls = self._search_duckduckgo(query, max_results=10)
+            all_urls.update(urls)
+            time.sleep(REQUEST_DELAY * 1.5)  # Extra delay for broader searches
+
+        self.log(f"  Found {len(all_urls)} web pages about Saskatoon art")
+
+        for url in all_urls:
+            # Skip already processed domains
+            if 'dtnyxe.ca' in url:
+                continue
+
+            soup = self.fetch_page(url)
+            if soup:
+                self._parse_generic_article(url, soup, "Web Search")
+
+        self.log(f"General web discovery complete. Found {len(self.candidates)} candidates so far.")
 
     def discover_instagram_hashtags(self):
         """Note: Instagram requires authentication and API access"""
@@ -292,6 +361,96 @@ class DiscoveryEngine:
             "status": "requires_api_access",
             "note": "Would search: #yxeart, #saskatoonart, #saskatoonmurals"
         }
+
+    def _parse_generic_article(self, url: str, soup: BeautifulSoup, source_name: str):
+        """Generic parser for any article about Saskatoon art"""
+
+        # Extract all text
+        text = soup.get_text()
+
+        # Look for artist names (capitalized words)
+        artist_patterns = [
+            r'artist\s+([A-Z][a-z]+\s+[A-Z][a-z]+)',
+            r'by\s+([A-Z][a-z]+\s+[A-Z][a-z]+)',
+            r'created by\s+([A-Z][a-z]+\s+[A-Z][a-z]+)',
+            r'painted by\s+([A-Z][a-z]+\s+[A-Z][a-z]+)',
+        ]
+
+        # Look for mural/artwork titles
+        title_patterns = [
+            r'"([^"]+)"',
+            r'titled\s+"([^"]+)"',
+            r'titled\s+([A-Z][^.,:;]+)',
+            r'mural\s+called\s+"([^"]+)"',
+            r'work\s+called\s+"([^"]+)"',
+        ]
+
+        # Extract information
+        artists = set()
+        for pattern in artist_patterns:
+            matches = re.findall(pattern, text, re.IGNORECASE)
+            # Filter out common false positives
+            for match in matches:
+                if match.lower() not in ['the city', 'city of', 'downtown saskatoon', 'the artist']:
+                    artists.add(match)
+
+        titles = set()
+        for pattern in title_patterns:
+            matches = re.findall(pattern, text)
+            titles.update([m.strip() for m in matches if len(m.strip()) > 5 and len(m.strip()) < 100])
+
+        # Look for Saskatoon locations
+        location_patterns = [
+            r'(?:at|on|located at)\s+([^.]+(?:building|downtown|street|avenue|broadway|riversdale|20th))',
+            r'([^.]+(?:building|downtown|street|avenue|broadway|riversdale))\s+(?:in|at)\s+[Ss]askatoon',
+        ]
+
+        locations = set()
+        for pattern in location_patterns:
+            matches = re.findall(pattern, text, re.IGNORECASE)
+            locations.update([m.strip() for m in matches if len(m.strip()) < 150])
+
+        year = self.extract_year(text)
+
+        # If we found meaningful information, create candidates
+        if artists and (titles or locations):
+            for artist in list(artists)[:10]:  # Limit to 10 artists per page
+                candidate = ArtworkCandidate()
+                candidate.artist = artist
+                candidate.title = list(titles)[0] if titles else ""
+                candidate.location = list(locations)[0] if locations else "Saskatoon, SK"
+                candidate.neighbourhood = self._extract_neighbourhood(candidate.location)
+                candidate.year = year
+                candidate.source_url = url
+                candidate.source_name = source_name
+                candidate.notes = "Extracted via web search"
+
+                # Try to extract medium
+                if 'paint' in text.lower() or 'mural' in text.lower():
+                    candidate.medium = ['paint']
+                elif 'sculpture' in text.lower():
+                    candidate.medium = ['sculpture']
+
+                candidate.calculate_confidence()
+
+                # Only add if decent confidence and not duplicate
+                if candidate.confidence != "low" and not self._is_duplicate(candidate):
+                    self.candidates.append(candidate)
+                    self.log(f"  Found: {candidate.artist} - {candidate.title or candidate.location}")
+
+    def _extract_neighbourhood(self, location: str) -> str:
+        """Extract neighbourhood from location string"""
+        location_lower = location.lower()
+        if 'broadway' in location_lower:
+            return "Broadway"
+        elif 'riversdale' in location_lower:
+            return "Riversdale"
+        elif 'downtown' in location_lower:
+            return "Downtown"
+        elif '20th' in location_lower:
+            return "Riversdale"
+        else:
+            return ""
 
     def _is_duplicate(self, candidate: ArtworkCandidate) -> bool:
         """Check if candidate is duplicate"""
@@ -365,12 +524,13 @@ Generated: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
     def run_discovery(self):
         """Run full discovery pipeline"""
         self.log("=" * 60)
-        self.log("Saskatoon Art Guide - Discovery Pipeline")
+        self.log("Saskatoon Art Guide - Comprehensive Discovery Pipeline")
         self.log("=" * 60)
 
         # Run discovery from various sources
         self.discover_dtnyxe_blog()
         self.discover_city_saskatoon()
+        self.discover_web_general()  # Broad web search
         self.discover_instagram_hashtags()
 
         # Export results

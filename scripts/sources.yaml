@@ -1,0 +1,59 @@
+# Curated Sources for Saskatoon Public Art Discovery
+# Add URLs here as you discover reliable sources
+
+dtnyxe_blog:
+  base_url: https://dtnyxe.ca
+  known_articles:
+    - https://dtnyxe.ca/ness-jacobson-murals/
+    - https://dtnyxe.ca/new-mural-coming-to-downtown/
+    - https://dtnyxe.ca/public-art-initiative/
+  source_name: "DTNYXE Downtown Blog"
+  reliability: high
+
+city_saskatoon:
+  base_url: https://www.saskatoon.ca
+  known_pages:
+    # Add working URLs when found
+  source_name: "City of Saskatoon"
+  reliability: high
+
+local_news:
+  starphoenix:
+    - # Add StarPhoenix article URLs about murals
+  cbc_saskatchewan:
+    - # Add CBC Saskatchewan article URLs
+  source_name: "Local News"
+  reliability: medium
+
+artist_portfolios:
+  # Add known artist portfolio/website URLs
+  - https://www.jjacobsondesign.ca
+  - https://kentness.wordpress.com
+
+business_districts:
+  broadway_bid:
+    base_url: https://www.broadwayyxe.ca
+    source_name: "Broadway BID"
+  riversdale_bid:
+    base_url: # Add when found
+    source_name: "Riversdale BID"
+  downtown_bid:
+    base_url: https://downtownsaskatoon.com
+    source_name: "Downtown Saskatoon"
+
+arts_organizations:
+  saskculture:
+    base_url: https://saskculture.ca
+    source_name: "SaskCulture"
+  sask_arts_board:
+    base_url: https://www.saskartsboard.ca
+    source_name: "Saskatchewan Arts Board"
+  carfac:
+    base_url: https://www.carfac.ca
+    source_name: "CARFAC Saskatchewan"
+
+# Manual discovery workflow:
+# 1. Search Google manually for "Saskatoon mural" + year
+# 2. Add promising URLs to this file
+# 3. Run discovery script
+# 4. Review and validate results
