@@ -1,0 +1,56 @@
+name: New Artwork Submission
+description: Submit a public artwork for inclusion in the catalog
+title: "[Submission]: "
+labels: ["submission"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Artwork title
+    validations:
+      required: true
+
+  - type: input
+    id: artist
+    attributes:
+      label: Artist name(s)
+    validations:
+      required: true
+
+  - type: input
+    id: year
+    attributes:
+      label: Year completed
+    validations:
+      required: true
+
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: Address or nearest intersection
+    validations:
+      required: true
+
+  - type: input
+    id: commissioned
+    attributes:
+      label: Commissioning body
+      description: City, organization, business, or festival
+    validations:
+      required: false
+
+  - type: input
+    id: contact
+    attributes:
+      label: Artist contact or website
+    validations:
+      required: false
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Source of information
+      description: Link or explanation verifying the artwork
+    validations:
+      required: true

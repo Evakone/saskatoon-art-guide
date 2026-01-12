@@ -2,6 +2,8 @@
 
 A collaborative, living catalog of public art and murals in Saskatoon and Saskatchewan.
 
+This repository is an open data catalog. It is governed by a neutral attribution policy and is open for community contributions via GitHub issues and pull requests.
+
 ## What This Is
 
 The Saskatoon Art Guide is a structured, open dataset documenting public artworks across the city and region. It prioritizes:
@@ -41,6 +43,8 @@ Each entry includes:
 ## How to Contribute
 
 Contributions are welcome from anyone with accurate information about public art.
+
+Contributions are handled via GitHub issues or pull requests only. Please use the provided templates when submitting new works or corrections.
 
 ### Submitting New Artworks
 

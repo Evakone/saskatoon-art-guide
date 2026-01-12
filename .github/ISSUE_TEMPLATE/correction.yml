@@ -1,0 +1,34 @@
+name: Correction or Update
+description: Report an error or request a correction to an existing artwork entry
+title: "[Correction]: "
+labels: ["correction"]
+body:
+  - type: input
+    id: artwork
+    attributes:
+      label: Artwork title
+      description: Name of the artwork as listed in the catalog
+    validations:
+      required: true
+
+  - type: input
+    id: artist
+    attributes:
+      label: Artist name
+      description: Artist associated with the artwork
+    validations:
+      required: true
+
+  - type: textarea
+    id: issue
+    attributes:
+      label: What needs to be corrected?
+      description: Please describe the incorrect information and the correct details.
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Source or verification
+      description: Link or explanation confirming the correction
