@@ -34,6 +34,20 @@ Recommended but optional:
 3. Curator reviews for accuracy and adherence to attribution policy
 4. Entry is added to the appropriate data file
 
+### Bulk Submissions via CSV
+
+For processing multiple submissions at once:
+
+1. Collect submissions in a CSV file using the format specified in `scripts/README.md`
+2. Run the conversion script: `python3 scripts/csv_to_json.py`
+3. **REQUIRED: Manual review step (non-negotiable)**
+   - Open the generated `saskatoon_from_submissions.json`
+   - Verify artist names, titles, coordinates, and source information
+   - Check that status values are valid: `active`, `removed`, or `altered`
+   - Manually copy vetted entries into `data/artworks/saskatoon.json`
+
+**Do not auto-merge converted data.** This manual review step preserves attribution accuracy and prevents errors from entering the public catalog.
+
 ## Corrections
 
 If you notice an error in attribution, location, or any other detail:

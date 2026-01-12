@@ -58,6 +58,46 @@ See `governance/workflow.md` for detailed submission guidelines.
 
 If you notice an error in attribution, location, or other details, please open an issue or contact the curator directly. Attribution corrections are prioritized.
 
+## Tools and Automation
+
+### Issue Templates
+
+The repository includes structured issue templates to streamline contributions:
+
+- **New Artwork Submission** — Submit a new artwork with required fields
+- **Correction or Update** — Report errors in existing entries
+
+These templates ensure consistent data formatting and make it easier for the community to contribute.
+
+### Bulk Submission Processing
+
+For processing multiple artworks at once, use the CSV to JSON conversion script:
+
+```bash
+# 1. Prepare submissions.csv in repo root
+# 2. Run conversion script
+python3 scripts/csv_to_json.py
+
+# 3. Review output at data/artworks/saskatoon_from_submissions.json
+# 4. Manually verify and merge vetted entries into saskatoon.json
+```
+
+See `scripts/README.md` for detailed usage instructions and CSV format requirements.
+
+**Important:** The conversion script does not auto-publish. All entries must be manually reviewed before adding to the catalog to ensure attribution accuracy.
+
+### Automation Roadmap
+
+A phased automation plan is under development to scale the catalog while maintaining quality:
+
+- **Phase 1:** Automated discovery from public sources
+- **Phase 2:** Artist contact information finding
+- **Phase 3:** Ethical outreach with artist verification
+- **Phase 4:** Response processing and staging
+- **Phase 5:** GitHub integration for batch updates
+
+See `governance/automation-plan.md` for the complete roadmap and ethical safeguards.
+
 ## Governance
 
 This project is maintained by Josh Jacobson as steward and curator. Governance documents are located in the `governance/` directory:
