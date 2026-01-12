@@ -1,8 +1,62 @@
 # Scripts
 
-This directory contains automation tools for processing artwork submissions.
+This directory contains automation tools for artwork discovery and submission processing.
 
-## csv_to_json.py
+## Discovery Pipeline
+
+### discover_artworks.py
+
+Discovers public artworks from various online sources and outputs candidates to CSV.
+
+**Features:**
+- Scrapes DTNYXE blog for mural announcements
+- Extracts artist names, titles, locations, and years
+- Assigns confidence scores (high/medium/low)
+- Avoids duplicates
+- Respects rate limiting
+
+**Usage:**
+```bash
+python3 scripts/discover_artworks.py
+```
+
+**Output:**
+- `data/discovered/candidates.csv` - Discovered artworks with metadata
+- `data/discovered/sources.json` - Source reliability information
+- `data/discovered/discovery.log` - Detailed execution log
+- `data/discovered/discovery_report.md` - Human-readable summary
+
+**Current Sources:**
+- DTNYXE Downtown Blog
+- (More sources can be added)
+
+### find_artist_contacts.py
+
+Finds public contact information for artists discovered in the catalog.
+
+**Features:**
+- Searches for artist websites
+- Suggests Instagram profiles
+- Notes artist directory listings
+- Respects privacy and rate limits
+
+**Usage:**
+```bash
+python3 scripts/find_artist_contacts.py
+```
+
+**Output:**
+- `data/discovered/contacts.json` - Artist contact information
+
+**Privacy Policy:**
+- Only uses publicly available information
+- Respects robots.txt and rate limits
+- No scraping of private profiles
+- Follows platform Terms of Service
+
+## Bulk Submission Processing
+
+### csv_to_json.py
 
 Converts CSV submissions to JSON format matching the artwork schema.
 

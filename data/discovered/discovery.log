@@ -1,0 +1,66 @@
+[2026-01-11 21:49:30] ============================================================
+[2026-01-11 21:49:30] Saskatoon Art Guide - Discovery Pipeline
+[2026-01-11 21:49:30] ============================================================
+[2026-01-11 21:49:30] Starting DTNYXE blog discovery...
+[2026-01-11 21:49:30] Fetching: https://dtnyxe.ca/ness-jacobson-murals/
+[2026-01-11 21:49:31] Fetching: https://dtnyxe.ca/category/public-art/
+[2026-01-11 21:49:34] Error fetching https://dtnyxe.ca/category/public-art/: 404 Client Error: Not Found for url: https://dtnyxe.ca/category/public-art/
+[2026-01-11 21:49:34] DTNYXE discovery complete. Found 0 candidates so far.
+[2026-01-11 21:49:34] Starting City of Saskatoon discovery...
+[2026-01-11 21:49:34] Fetching: https://www.saskatoon.ca/community-culture-heritage/arts-culture/public-art
+[2026-01-11 21:49:35] Error fetching https://www.saskatoon.ca/community-culture-heritage/arts-culture/public-art: 404 Client Error: Not Found for url: https://www.saskatoon.ca/community-culture-heritage/arts-culture/public-art
+[2026-01-11 21:49:35]   Could not access City of Saskatoon page
+[2026-01-11 21:49:35] Instagram discovery requires API credentials (skipped for now)
+[2026-01-11 21:49:35] Exported 0 candidates to data/discovered/candidates.csv
+[2026-01-11 21:49:35] Exported source information to data/discovered/sources.json
+[2026-01-11 21:49:35] Generated report: data/discovered/discovery_report.md
+[2026-01-11 21:49:35] ============================================================
+[2026-01-11 21:49:35] Discovery complete! Found 0 candidates.
+[2026-01-11 21:49:35] Review results in: data/discovered
+[2026-01-11 21:49:35] ============================================================
+[2026-01-11 21:50:50] ============================================================
+[2026-01-11 21:50:50] Saskatoon Art Guide - Discovery Pipeline
+[2026-01-11 21:50:50] ============================================================
+[2026-01-11 21:50:50] Starting DTNYXE blog discovery...
+[2026-01-11 21:50:50] Searching DTNYXE for: mural
+[2026-01-11 21:50:50] Searching DTNYXE for: public art
+[2026-01-11 21:50:50] Searching DTNYXE for: street art
+[2026-01-11 21:50:50] Fetching: https://dtnyxe.ca/ness-jacobson-murals/
+[2026-01-11 21:50:51]   Could not find article content
+[2026-01-11 21:50:51] DTNYXE discovery complete. Found 0 candidates so far.
+[2026-01-11 21:50:51] Starting City of Saskatoon discovery...
+[2026-01-11 21:50:51] Fetching: https://www.saskatoon.ca/community-culture-heritage/arts-culture/public-art
+[2026-01-11 21:50:53] Error fetching https://www.saskatoon.ca/community-culture-heritage/arts-culture/public-art: 404 Client Error: Not Found for url: https://www.saskatoon.ca/community-culture-heritage/arts-culture/public-art
+[2026-01-11 21:50:53]   Could not access City of Saskatoon page
+[2026-01-11 21:50:53] Instagram discovery requires API credentials (skipped for now)
+[2026-01-11 21:50:53] Exported 0 candidates to data/discovered/candidates.csv
+[2026-01-11 21:50:53] Exported source information to data/discovered/sources.json
+[2026-01-11 21:50:53] Generated report: data/discovered/discovery_report.md
+[2026-01-11 21:50:53] ============================================================
+[2026-01-11 21:50:53] Discovery complete! Found 0 candidates.
+[2026-01-11 21:50:53] Review results in: data/discovered
+[2026-01-11 21:50:53] ============================================================
+[2026-01-11 21:51:40] ============================================================
+[2026-01-11 21:51:40] Saskatoon Art Guide - Discovery Pipeline
+[2026-01-11 21:51:40] ============================================================
+[2026-01-11 21:51:40] Starting DTNYXE blog discovery...
+[2026-01-11 21:51:40] Searching DTNYXE for: mural
+[2026-01-11 21:51:40] Searching DTNYXE for: public art
+[2026-01-11 21:51:40] Searching DTNYXE for: street art
+[2026-01-11 21:51:40] Fetching: https://dtnyxe.ca/ness-jacobson-murals/
+[2026-01-11 21:51:41]   Parsing article with 193 characters
+[2026-01-11 21:51:41]   Found: Kent Ness - Moving Forward
+[2026-01-11 21:51:41]   Found: Josh Jacobson - Prairie Petals: Lilies in Luminous Frames
+[2026-01-11 21:51:41] DTNYXE discovery complete. Found 2 candidates so far.
+[2026-01-11 21:51:41] Starting City of Saskatoon discovery...
+[2026-01-11 21:51:41] Fetching: https://www.saskatoon.ca/community-culture-heritage/arts-culture/public-art
+[2026-01-11 21:51:42] Error fetching https://www.saskatoon.ca/community-culture-heritage/arts-culture/public-art: 404 Client Error: Not Found for url: https://www.saskatoon.ca/community-culture-heritage/arts-culture/public-art
+[2026-01-11 21:51:42]   Could not access City of Saskatoon page
+[2026-01-11 21:51:42] Instagram discovery requires API credentials (skipped for now)
+[2026-01-11 21:51:42] Exported 2 candidates to data/discovered/candidates.csv
+[2026-01-11 21:51:42] Exported source information to data/discovered/sources.json
+[2026-01-11 21:51:42] Generated report: data/discovered/discovery_report.md
+[2026-01-11 21:51:42] ============================================================
+[2026-01-11 21:51:42] Discovery complete! Found 2 candidates.
+[2026-01-11 21:51:42] Review results in: data/discovered
+[2026-01-11 21:51:42] ============================================================

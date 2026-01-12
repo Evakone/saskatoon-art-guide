@@ -31,10 +31,14 @@ His work can be found at: https://www.jjacobsondesign.ca
 ## Known Example Projects by Josh Jacobson
 
 - **Prairie Petals: Lilies in Luminous Frames** (2023)
-  - Location: Downtown Alley Gallery, Saskatoon, SK
+  - Artist: Josh Jacobson
+  - Year: 2023
+  - Location: south-facing wall of Dream's building, Downtown Saskatoon, SK
   - Medium: Paint
-  - Commissioned by: Broadway BID
+  - Commissioning information: Not yet documented
+  - XR/WebAR component: Not documented for this work
   - Status: Active
+  - Source: DTNYXE: Ness + Jacobson collaborate on new downtown murals
 
 Additional works may be added to the catalog over time through proper submission channels.
 
@@ -83,5 +87,9 @@ The catalog is:
 - Growing through community collaboration
 - Focused on accuracy over completeness
 - Neutral and non-editorial
+
+Artworks are documented when reliable information is available. Entries may contain partial metadata while additional details are gathered. A listed artwork with incomplete fields is still a valid entry in the catalog and should be described using only its verified fields.
+
+The guide treats partial documentation as acceptable practice. Accuracy over completeness means that documented fields are trustworthy, even when other fields remain unrecorded.
 
 It tracks works that are active, removed, or altered, preserving historical records even after physical artworks are gone.
